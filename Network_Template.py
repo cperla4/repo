@@ -14,9 +14,9 @@ if __name__ == "__main__":
     pass_id = getpass('Password: ')
     host_id = input('IP: ')
     
-    ios_connect['username'] = ''
-    ios_connect['password'] = ''
-    ios_connect['host'] = ''
+    ios_connect['username'] = user_id
+    ios_connect['password'] = pass_id
+    ios_connect['host'] = host_id
     
     ssh_connect = ConnectHandler(**ios_connect)    #Runs IOS Parameters against Netmiko Terminal
     ssh_output = ssh_connect.send_command('cli show commands')    #Runs show commands in terminal
