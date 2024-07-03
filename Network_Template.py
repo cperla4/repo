@@ -1,6 +1,8 @@
 __author__ = "Christian.Perla"
 if __name__ == "__main__":
 
+    from getpass import getpass
+    
     ios_connect = {
         'device_type' : 'cisco_ios',
         'host' : 'ip',
@@ -8,6 +10,13 @@ if __name__ == "__main__":
         'password' : 'password',
         'port' : '22',
     }
+    user_id = input('Username: ')
+    pass_id = getpass('Password: ')
+    host_id = input('IP: ')
+    
+    ios_connect['username'] = ''
+    ios_connect['password'] = ''
+    ios_connect['host'] = ''
     
     ssh_connect = ConnectHandler(**ios_connect)    #Runs IOS Parameters against Netmiko Terminal
     ssh_output = ssh_connect.send_command('cli show commands')    #Runs show commands in terminal
