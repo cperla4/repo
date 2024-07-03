@@ -1,8 +1,6 @@
 __author__ = "Christian.Perla"
 if __name__ == "__main__":
 
-    def cli_cmd():
-
     ios_connect = {
         'device_type' : 'cisco_ios',
         'host' : 'ip',
@@ -11,5 +9,7 @@ if __name__ == "__main__":
         'port' : '22',
     }
     
-    ssh_connect = ConnectHandler(**ios_connect)
-    ssh_output = ssh_connect.send_command(ent_cmd.get())
+    ssh_connect = ConnectHandler(**ios_connect)    #Runs IOS Parameters against Netmiko Terminal
+    ssh_output = ssh_connect.send_command('cli show commands')    #Runs show commands in terminal
+    
+    
