@@ -1,0 +1,13 @@
+[switches:children]
+eos
+ios
+vyos
+
+[eos]
+eos01.example.net
+
+[ios]
+ios01.example.net
+
+[vyos]
+vyos01.example.net
