@@ -3,6 +3,7 @@ if __name__ == "__main__":
 
     import sys    #System functions
     from getpass import getpass    #Hides clear-text passwords
+    from netmiko import ConnectHandler
 
     #Terminal Session Parameters
     ios_connect = {
