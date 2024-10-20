@@ -24,3 +24,7 @@ def compareTriplets(a, b):
             bob_points += 1
         i += 1
     return f'{alice_points}{bob_points}'
+
+#Grabbing Count of element within a string
+def count_example(str):
+    return str.count('example')
