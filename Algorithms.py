@@ -28,3 +28,13 @@ def compareTriplets(a, b):
 #Grabbing Count of element within a string
 def count_example(str):
     return str.count('example')
+
+#Same example of the one above without the [count] function
+def count_example_alt(str):
+  sum = 0
+  ## Loop to length-1 and access index i and i+1
+  ## in the loop.
+  for i in range(len(str)-1):
+    if str[i:i+2] == 'example':
+      sum = sum + 1
+  return sum
