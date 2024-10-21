@@ -31,17 +31,31 @@
         <mxCell id="XOzi0zgnYEqHRwpfXag4-9" value="&lt;b&gt;Carderock&lt;/b&gt;&lt;div&gt;&lt;b&gt;User&lt;/b&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="XOzi0zgnYEqHRwpfXag4-10">
           <mxGeometry width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="XOzi0zgnYEqHRwpfXag4-11" value="&lt;div&gt;Standalone&lt;/div&gt;128.38.22.180" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="XOzi0zgnYEqHRwpfXag4-11" value="&lt;div&gt;Standalone&lt;/div&gt;X.X.X.180" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="70" y="290" width="85" height="30" as="geometry" />
         </mxCell>
         <mxCell id="XOzi0zgnYEqHRwpfXag4-12" value="&lt;b&gt;Firewall&lt;/b&gt;" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/firewall.svg;" vertex="1" parent="1">
           <mxGeometry x="310" y="150" width="30.5" height="50" as="geometry" />
         </mxCell>
+        <mxCell id="XOzi0zgnYEqHRwpfXag4-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="XOzi0zgnYEqHRwpfXag4-13" target="XOzi0zgnYEqHRwpfXag4-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="XOzi0zgnYEqHRwpfXag4-13" value="&lt;b&gt;BIG-IP&lt;/b&gt;" style="sketch=0;points=[[0.015,0.015,0],[0.985,0.015,0],[0.985,0.985,0],[0.015,0.985,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];verticalLabelPosition=bottom;html=1;verticalAlign=top;aspect=fixed;align=center;pointerEvents=1;shape=mxgraph.cisco19.rect;prIcon=web_application_firewall;fillColor=#FAFAFA;strokeColor=#005073;" vertex="1" parent="1">
-          <mxGeometry x="350" y="150" width="64" height="50" as="geometry" />
+          <mxGeometry x="400" y="150" width="64" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XOzi0zgnYEqHRwpfXag4-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="XOzi0zgnYEqHRwpfXag4-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="740" y="174.9411764705883" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="XOzi0zgnYEqHRwpfXag4-14" value="&lt;b&gt;Carderock&lt;/b&gt;&lt;div&gt;&lt;b&gt;Network&lt;/b&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="550" y="145" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XOzi0zgnYEqHRwpfXag4-16" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="XOzi0zgnYEqHRwpfXag4-4" target="XOzi0zgnYEqHRwpfXag4-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XOzi0zgnYEqHRwpfXag4-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="XOzi0zgnYEqHRwpfXag4-12" target="XOzi0zgnYEqHRwpfXag4-13">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
