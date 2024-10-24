@@ -31,10 +31,15 @@ def count_example(str):
 
 #Same example of the one above without the [count] function
 def count_example_alt(str):
-  sum = 0
-  ## Loop to length-1 and access index i and i+1
-  ## in the loop.
-  for i in range(len(str)-1):
-    if str[i:i+2] == 'example':
-      sum = sum + 1
-  return sum
+    sum = 0
+    ## Loop to length-1 and access index i and i+1
+    ## in the loop.
+    for i in range(len(str)-1):
+        if str[i:i+2] == 'example':
+            sum = sum + 1
+    return sum
+
+#Find max and print max only in the array
+def arr(nums):
+    find_max = max(nums)
+    return [find_max for _ in nums]
