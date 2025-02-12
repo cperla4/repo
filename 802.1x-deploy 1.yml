@@ -1,0 +1,79 @@
+
+---
+- name: "Configure client for 802.1x network authentication."
+  hosts: all
+  gather_facts: true
+  tasks:
+
+  - name: Create separate ansible tmp dir
+    file:
+      path: /opt/.ansible_tmp
+      mode: 0755
+      owner: root
+      group: root
+      state: directory
+    when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "7") or
+          (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8") or
+          (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "9")
+
+
+#### NOTE: You don't need to manually distribute the NREN root CA for this but it will work. It is better practice to point NM directly to the CA path assuming it is managed by a domain integration application like Centrify or SSSD. See bash script for details.
+  - name: Copy NREN Root CA to remote host
+    vars:
+      ansible_remote_tmp: /opt/.ansible_tmp
+    copy:
+      src: NREN-Root-CA.cert
+      dest: /etc/pki/tls/certs
+      owner: root
+      group: root
+      mode: 0444
+    when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "7") or
+          (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8") or
+          (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "9")
+
+  - name: "Install key-reencrypt cron job"
+    vars:
+      ansible_remote_tmp: /opt/.ansible_tmp
+    copy:
+      dest: /etc/cron.d/8021x-key-reencrypt
+      mode: 0644
+      owner: root
+      group: root
+      content: |
+        @reboot root bash /usr/local/bin/8021x-key-reencrypt.sh
+    when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "7") or
+          (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8") or
+          (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "9")
+
+  - name: "Install key-reencrypt cron job script"
+    vars:
+      ansible_remote_tmp: /opt/.ansible_tmp
+    copy:
+      dest: /usr/local/bin/8021x-key-reencrypt.sh
+      mode: 0700
+      owner: root
+      group: root
+      content: |
+        !/bin/bash
+        
+        /usr/bin/openssl pkcs8 -topk8 -v2 aes256 -passout pass:<putpasswordhere> -in /var/centrify/net/certs/auto_WC-Domain-Autoenroll-v1.1.key -out /var/centrify/net/certs/auto_WC-Domain-Autoenroll-v1.1.encrypted.key
+        
+        chmod 400 /var/centrify/net/certs/auto_WC-Domain-Autoenroll-v1.1.encrypted.key
+    when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "7") or
+          (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8") or
+          (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "9")
+
+  - name: "Run bash script"
+    vars:
+      ansible_remote_tmp: /opt/.ansible_tmp
+    script: 802.1x-deploy-as-add.sh
+    when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "7") or
+          (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8") or
+          (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "9")
+
+
+
+
+
+
+
